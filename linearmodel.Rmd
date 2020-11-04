@@ -72,3 +72,7 @@ new <- data.frame(ARM=88,GRIP=94)
 predict.lm(model.3,new)
 predict(model.3,new,interval="prediction")
 ```
+
+```{r}
+anova(model.1,model.3)
+```
