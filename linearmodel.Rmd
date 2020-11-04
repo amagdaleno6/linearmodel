@@ -38,3 +38,14 @@ basicNN <- ggplot(dataF,aes(y=SIMS,x=GRIP))
 ```{r}
 basicNN + geom_point()+ geom_smooth(method=lm)
 ```
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=dataF)
+summary.lm(model.1)
+```
+This model is explaining .46 percent of the variation. 
+
+```{r}
+model.2 <- lm(SIMS~GRIP,data=dataF)
+summary.lm(model.2)
+```
