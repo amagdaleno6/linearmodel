@@ -49,3 +49,8 @@ This model is explaining .46 percent of the variation.
 model.2 <- lm(SIMS~GRIP,data=dataF)
 summary.lm(model.2)
 ```
+
+```{r}
+model.3 <- lm(SIMS~GRIP+ARM,data=dataF)
+summary.lm(model.3)
+```
