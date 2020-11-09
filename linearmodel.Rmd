@@ -1,7 +1,7 @@
 ---
 title: "linearmodel"
 author: "Alejandra Magdaleno"
-date: "November 7th, 2020"
+date: "November 9th, 2020"
 output: html_document
 ---
 
@@ -87,3 +87,7 @@ predict(model.3,new,interval="prediction")
 ```{r}
 anova(model.1,model.3)
 ```
+
+The RSS for Model 1 is 217.88 while the RSS for Model 2 is 188.43.  This reflects a difference of about 30 and shows that the results are significant because we were testing whether or not the value of our assessment would change.  The result also reflects a low P value, so we reject the null hypothesis that there was no difference on how well Model 1 and Model 2 would explain ARM.  This ANOVA test shows that Model 3 is a better predictor, so we reject the null hypothesis.   
+  
+
