@@ -1,7 +1,7 @@
 ---
 title: "linearmodel"
 author: "Alejandra Magdaleno"
-date: "11/4/2020"
+date: "November 7th, 2020"
 output: html_document
 ---
 
@@ -38,23 +38,30 @@ basicNN <- ggplot(dataF,aes(y=SIMS,x=GRIP))
 ```{r}
 basicNN + geom_point()+ geom_smooth(method=lm)
 ```
+  
+The plot of SIMS VS GRIP + ARM would look like a plane in 3D space.  At this point we do not have the tools available to plot it. 
 
 ```{r}
 model.1 <- lm(SIMS~ARM,data=dataF)
 summary.lm(model.1)
 ```
-This model is explaining .46 percent of the variation. 
+This model is explaining 46 percent of the variation. 
 
 ```{r}
 new <- data.frame(ARM=88,GRIP=94)
 predict.lm(model.1,new)
 predict(model.1,new,interval="prediction")
 ```
+  
+Model 1 is predicting a value of 0.7063836 and the 95 percent confidence interval is somewhere between -1.726209 and 3.138977.  
+
 
 ```{r}
 model.2 <- lm(SIMS~GRIP,data=dataF)
 summary.lm(model.2)
 ```
+
+When compared, the Adjusted R square in the model for SIMS ARM is 0.467 while the one for  SIMS GRIP is 0.4053.  Because the value for SIMS ARM is higher, it means that it is a better model than SIMS GRIP. 
 
 ```{r}
 new <- data.frame(ARM=88,GRIP=94)
@@ -62,10 +69,14 @@ predict.lm(model.2,new)
 predict(model.2,new,interval="prediction")
 ```
 
+Model 2 is predicting a value of -0.5361543 and 95 percent confidence vallue is between -3.107961 and 2.035652.
+
 ```{r}
 model.3 <- lm(SIMS~GRIP+ARM,data=dataF)
 summary.lm(model.3)
 ```
+
+The Adjusted R square for this model is 0.5358, which is a higher value than the Adjusted R square for Models 1 and 2.  Model 3 explains more of the variation than the other two models.  If we were to rate all 3 models by comparing their Adjusted R squares, Model 2 would be the worst one, Model 1 would be the second best and Model 3 would be the best one.   
 
 ```{r}
 new <- data.frame(ARM=88,GRIP=94)
